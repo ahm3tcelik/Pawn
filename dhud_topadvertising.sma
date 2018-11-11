@@ -30,19 +30,13 @@ public elbasi()
 	set_task(5.0,"amad")
 }
 public amad()
-{
 	g_elbasi = false	
-}
-
+	
 public round_end()
-{
 	rounds ++
-}
 
 public restart_roundsnum() 
-{
 	rounds = 0 
-}
 
 public client_disconnected(id)
 {
@@ -75,18 +69,14 @@ public client_jailinfo(TASKID)
 	{
 		
 		new oyuncusayisi=0;
-		new players[32], num, tempid;
-		
+		new players[32], num, tempid;	
 		get_players(players, num)
-		
 		for (new i=0; i<num; i++)
 		{
 			tempid = players[i]
 			
 			if (is_user_connected(tempid))
-			{
-				oyuncusayisi++;
-			}
+				oyuncusayisi++;	
 		}
 		new map[32],player;
 		get_playersnum(player)
@@ -101,7 +91,8 @@ public client_jailinfo(TASKID)
 	else 
 	{
 		
-		if(is_user_alive(id)){
+		if(is_user_alive(id))
+		{
 			new hostname[64]
 			get_cvar_string("hostname", hostname, 63)
 			set_dhudmessage(170, 170, 255, -1.0, 0.0, 0, 6.0, 0.4);
@@ -112,7 +103,9 @@ public client_jailinfo(TASKID)
 	
 			set_dhudmessage(0, 255, 255, -1.0, 0.0, 0, 6.0, 0.4);
 			show_dhudmessage(id ,"                                     GARDIYAN : %d",CTNum)
-		} else {
+		} 
+		else 
+		{
 			if(get_user_flags(id) & ADMIN_RESERVATION)
 			{
 				set_dhudmessage(170, 170, 255, -1.0, 0.15, 1, 6.0, 0.4)
@@ -121,7 +114,9 @@ public client_jailinfo(TASKID)
 				show_dhudmessage(id, "MAHKUM : %i                                                             ",TNum)
 				set_dhudmessage(0, 255, 255, -1.0, 0.15, 0, 6.0, 0.4)
 				show_dhudmessage(id, "                                                              GARDIYAN : %i",CTNum)
-			} else {
+			} 
+			else 
+			{
 				set_dhudmessage(170, 170, 255, -1.0, 0.15, 1, 6.0, 0.4)
 				show_dhudmessage(id, "KAOS GAMING | GUN : %i^n[ - Sende Ailemize Katilmak Istersen say'a [/TS3] Yazarak Katilabilirsin. - ]",rounds)
 				set_dhudmessage(255, 0, 0, -1.0, 0.15, 0, 6.0, 0.4)
